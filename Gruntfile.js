@@ -9,7 +9,7 @@ module.exports = function(grunt) {
         // watch for changes and trigger sass, jshint, uglify and livereload
         watch: {
             sass: {
-                files: ['assets/sass/**/*.{scss,sass}'],
+                files: ['assets/scss/**/*.{scss}'],
                 tasks: ['sass', 'autoprefixer', 'concat_css']
             },
             js: {
@@ -29,7 +29,15 @@ module.exports = function(grunt) {
                     style: 'expanded',
                 },
                 files: {
-                    'public/styles/build/main.css': 'assets/sass/app.scss'
+                    'dist/styles/main.css': 'assets/scss/app.scss'
+                }
+            },
+            prod: {
+                options: {
+                    style: 'compressed',
+                },
+                files: {
+                    'dist/styles/main.css': 'assets/scss/app.scss'
                 }
             }
         },
@@ -43,8 +51,8 @@ module.exports = function(grunt) {
             files: {
                 expand: true,
                 flatten: true,
-                src: 'public/styles/build/*.css',
-                dest: 'public/styles/build'
+                src: 'dist/styles/*.css',
+                dest: 'dist/styles'
             },
         },
 
@@ -55,7 +63,7 @@ module.exports = function(grunt) {
             },
             minify: {
                 expand: true,
-                cwd: 'public/styles/build',
+                cwd: 'dist/styles',
                 src: ['*.css', '!*.min.css'],
                 ext: '.css'
             }
@@ -64,8 +72,8 @@ module.exports = function(grunt) {
         concat_css: {
             options: {},
             all: {
-              src: ['assets/css/**/*.css', 'public/styles/build/**/*.css'],
-              dest: 'public/styles/build/main.css'
+              src: ['assets/css/**/*.css', 'dist/styles/**/*.css'],
+              dest: 'dist/styles/main.css'
             }
         },
 
@@ -85,12 +93,12 @@ module.exports = function(grunt) {
         uglify: {
             main: {
                 options: {
-                    sourceMap: 'public/js/build/main.js.map',
+                    sourceMap: 'dist/js/main.js.map',
                     sourceMappingURL: 'main.js.map',
                     sourceMapPrefix: 2
                 },
                 files: {
-                    'public/js/build/main.min.js': [ 'assets/js/vendor/jquery-1.11.2.js', 'assets/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js', 'assets/js/main.js' ]
+                    'dist/js/main.min.js': 'assets/js/**/*.js'
                 }
             }
         },
