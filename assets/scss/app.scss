@@ -1,3 +1,10 @@
 
+@import "bootstrap";
+@import "partials/_variables";
+
 /*=> Styles
 --------------------------------------------------*/
+
+body {
+    padding-top: $main-navbar-height;
+}
