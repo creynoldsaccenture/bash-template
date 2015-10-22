@@ -103,6 +103,16 @@ module.exports = function(grunt) {
             }
         },
 
+        copy: {
+            images: {
+                expand: true,
+                src: ['assets/images/*'],
+                dest: 'dist/images/',
+                filter: 'isFile',
+                flatten: true
+            }
+        },
+
         // deploy via rsync
         deploy: {
             options: {
@@ -132,6 +142,6 @@ module.exports = function(grunt) {
     grunt.renameTask('rsync', 'deploy');
 
     // register task
-    grunt.registerTask('default', ['sass:dev', 'autoprefixer', 'concat_css', 'uglify:main', 'watch']);
+    grunt.registerTask('default', ['sass:dev', 'autoprefixer', 'concat_css', 'uglify:main', 'copy:images', 'watch']);
 
 };
