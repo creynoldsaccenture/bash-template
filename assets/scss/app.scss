@@ -2,9 +2,131 @@
 @import "bootstrap";
 @import "partials/_variables";
 
+
 /*=> Styles
 --------------------------------------------------*/
 
-body {
-    padding-top: $main-navbar-height;
+html, footer {
+    background-color: $footer-colour;
 }
+
+body {
+    padding-top: $navbar-height;
+    background: url("#{$images-url}/clouds.jpg");
+    color: $body-text-colour;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 600;
+}
+
+
+/*=> Styles - Flexbox
+--------------------------------------------------*/
+
+.flex-container {
+    display: flex;
+    align-items: stretch;
+
+    &__column {
+        flex-direction: column;
+    }
+    &__row {
+        flex-direction: row;
+    }
+    &__row--left {
+        justify-content: flex-start;
+    }
+    &__row--right {
+        justify-content: flex-end;
+    }
+}
+
+
+/*=> Styles - Content
+--------------------------------------------------*/
+
+#content {
+    padding: $grid-gutter-width ($grid-gutter-width / 2);
+    min-height: 500px;
+
+    background: url("#{$icon-font-path}");
+
+    #weather {
+        box-sizing: border-box;
+
+        h1 {
+            // border-bottom: 5px solid rgba(255,255,255, .15);
+            padding: $grid-gutter-width / 2;
+            margin: 0;
+        }
+        .weather-search {
+            margin-left: 25%;
+            flex: 1 auto;
+            background-color: rgba(255,255,255,.025);
+            padding: 0 5px 5px;
+        }
+
+        div, h2 {
+            flex: 2 50%;
+        }
+        h2 {
+            margin: ($grid-gutter-width + ($grid-gutter-width / 2)) 0 0;
+            font-size: 10rem;
+            font-weight: 300;
+            line-height: 1;
+        }
+        .temp {
+            text-align: right;
+        }
+        .unit {
+            font-size: 5rem;
+            vertical-align: top;
+        }
+        .value {
+            font-size: 15rem;
+            line-height: 12rem;
+        }
+    }
+
+    .primary, .primary-1, .primary-2, .primary-3, .primary-4 {
+        display: inline-block;
+        width: $grid-gutter-width;
+        height: $grid-gutter-width;
+    }
+    .primary {
+        background-color: $brand-primary;
+    }
+    .primary-1 {
+        background-color: $brand-primary-1;
+    }
+    .primary-2 {
+        background-color: $brand-primary-2;
+    }
+    .primary-3 {
+        background-color: $brand-primary-3;
+    }
+    .primary-4 {
+        background-color: $brand-light;
+    }
+}
+
+/*=> Styles - Footer
+--------------------------------------------------*/
+
+footer {
+    padding-top: $grid-gutter-width;
+    color: $footer-text-colour;
+}
+
+
+/*=> Styles - Button
+--------------------------------------------------*/
+
+.btn {
+    border-radius: 0;
+}
+
+.btn-transparent {
+    background: transparent;
+}
+
+

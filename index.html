@@ -10,8 +10,8 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="apple-touch-icon" href="apple-touch-icon.png">
-
-        <link rel="stylesheet" href="dist/styles/main.css">
+        <link href='https://fonts.googleapis.com/css?family=Open+Sans:300,600,800' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="/styles/main.css">
 
     </head>
     <body>
@@ -19,7 +19,7 @@
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
 
-        <nav class="navbar navbar-inverse navbar-fixed-top">
+        <nav class="navbar navbar-default navbar-fixed-top">
           <div class="container">
             <div class="navbar-header">
               <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -28,9 +28,9 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
               </button>
-              <a class="navbar-brand" href="#">Project name</a>
+              <a class="navbar-brand" href="#">ZOMG Weather.com</a>
             </div>
-            <div id="navbar" class="collapse navbar-collapse">
+            <div id="navbar" class="collapse navbar-collapse pull-right">
               <ul class="nav navbar-nav">
                 <li class="active"><a href="#">Home</a></li>
                 <li><a href="#about">About</a></li>
@@ -40,16 +40,51 @@
           </div>
         </nav>
 
-        <div class="container">
+        <main id="content" class="container">
 
-          <div class="starter-template">
-            <h1>Bootstrap starter template</h1>
-            <p class="lead">Use this document as a way to quickly start any new project.<br> All you get is this text and a mostly barebones HTML document.</p>
-          </div>
+            <section id="weather">
 
-        </div><!-- /.container -->
+                <header class="flex-container">
+
+                    <h1>Current weather</h1>
+
+                    <div class="weather-search">
+                        <button class="btn btn-transparent" type="button"><span class="glyphicon glyphicon-search" aria-hidden="true"></span><span class="sr-only">Search</span></button>
+                    </div><!--/.weather-search -->
+
+                </header>
+
+                <div class="flex-container">
+
+                    <h2>London</h2>
+
+                    <div class="temp">
+                        <div class="high">
+                            <span class="value">36</span>
+                            <span class="unit" data-unit="celcius">&deg;C</span>
+                        </div>
+                        <span class="low"></span>
+                    </div>
+
+                </div><!--/.flex-container -->
+
+            </section><!--/#container -->
+
+            <div class="primary"></div>
+            <div class="primary-1"></div>
+            <div class="primary-2"></div>
+            <div class="primary-3"></div>
+            <div class="primary-4"></div>
+
+        </main><!-- /#content -->
+
+        <footer>
+            <div class="container">
+                <p>This is a footer</p>
+            </div>
+        </footer>
 
         <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
-        <script src="dist/js/main.min.js"></script>
+        <script src="/js/main.min.js"></script>
     </body>
 </html>
