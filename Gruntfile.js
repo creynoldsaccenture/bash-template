@@ -110,6 +110,13 @@ module.exports = function(grunt) {
                 dest: 'dist/images/',
                 filter: 'isFile',
                 flatten: true
+            },
+            tbsfonts: {
+                expand: true,
+                src: ['assets/fonts/bootstrap/*'],
+                dest: 'dist/fonts/bootstrap',
+                filter: 'isFile',
+                flatten: true
             }
         },
 
@@ -142,6 +149,6 @@ module.exports = function(grunt) {
     grunt.renameTask('rsync', 'deploy');
 
     // register task
-    grunt.registerTask('default', ['sass:dev', 'autoprefixer', 'concat_css', 'uglify:main', 'copy:images', 'watch']);
+    grunt.registerTask('default', ['sass:dev', 'autoprefixer', 'concat_css', 'uglify:main', 'copy', 'watch']);
 
 };
