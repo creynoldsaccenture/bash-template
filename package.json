@@ -14,5 +14,8 @@
     "grunt-contrib-watch": "~0.6.1",
     "grunt-rsync": "~0.6.2",
     "load-grunt-tasks": "~0.6.0"
+  },
+  "dependencies": {
+    "express": "^4.13.3"
   }
 }
