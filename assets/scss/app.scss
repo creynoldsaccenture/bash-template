@@ -12,8 +12,8 @@ html, footer {
 
 body {
     padding-top: $navbar-height;
-    font-family: 'Open Sans', sans-serif;
-    font-weight: 600;
+    font-family: $brand-font-family;
+    font-weight: $brand-font-weight;
 }
 
 
