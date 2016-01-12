@@ -41,6 +41,7 @@
         </nav>
 
         <main class="container">
+            {system_info}
         </main><!-- /.container -->
 
         <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
