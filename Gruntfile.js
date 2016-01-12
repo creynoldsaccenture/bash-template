@@ -21,6 +21,13 @@ module.exports = function(grunt) {
             }
         },
 
+        clean: {
+            options: {
+                force: true
+            },
+            dist: ['dist']
+        },
+
         // sass
         sass: {
             dev: {
@@ -67,6 +74,14 @@ module.exports = function(grunt) {
             ]
         },
 
+        // Only concat js files in dev mode
+        concat: {
+            dev: {
+                src: ['assets/js/**/*.js', 'assets/js/**/*.min.js'],
+                dest: 'dist/js/main.js'
+            }  
+        },
+
         // uglify to concat, minify, and make source maps for js files
         uglify: {
             main: {
@@ -76,7 +91,7 @@ module.exports = function(grunt) {
                     sourceMapPrefix: 2
                 },
                 files: {
-                    'dist/js/main.min.js': 'assets/js/**/*.js'
+                    'dist/js/main.js': 'assets/js/**/*.js'
                 }
             }
         },
@@ -98,36 +113,10 @@ module.exports = function(grunt) {
             }
         },
 
-        // deploy via rsync
-        deploy: {
-            options: {
-                src: "./",
-                args: ["--verbose"],
-                exclude: ['.git*', 'node_modules', '.sass-cache', 'Gruntfile.js', 'package.json', '.DS_Store', 'README.md', 'config.rb', '.jshintrc'],
-                recursive: true,
-                syncDestIgnoreExcl: true
-            },
-            staging: {
-                 options: {
-                    dest: "~/path/to/theme",
-                    host: "user@host.com"
-                }
-            },
-            production: {
-                options: {
-                    dest: "~/path/to/theme",
-                    host: "user@host.com"
-                }
-            }
-        }
-
     });
 
-    // rename tasks
-    grunt.renameTask('rsync', 'deploy');
-
     // register tasks
-    grunt.registerTask('default', ['sass:dev', 'autoprefixer', 'uglify:main', 'copy', 'watch']);
-    grunt.registerTask('prod', ['sass:prod', 'autoprefixer', 'uglify:main', 'copy']);
+    grunt.registerTask('default', ['clean', 'sass:dev', 'autoprefixer', 'concat:dev', 'copy', 'watch']);
+    grunt.registerTask('prod', ['clean', 'sass:prod', 'autoprefixer', 'uglify:main', 'copy']);
 
 };
