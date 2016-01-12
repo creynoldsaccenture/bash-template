@@ -27,9 +27,8 @@ This template includes two grunt tasks:
 
 `grunt prod` will run the tasks in prodution mode. This will minify all CSS and Javascript files.
 
-Once the `grunt` tasks have executed in dev mode the bash/cmd prompt should show the following:
+Once the `grunt` tasks have executed in dev mode the bash/cmd prompt should show the following output:
 ```
-$ grunt
 Running "clean:dist" (clean) task
 >> 1 path cleaned.
 
