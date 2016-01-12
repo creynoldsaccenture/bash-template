@@ -29,16 +29,18 @@ This template includes two grunt tasks:
 
 Once the `grunt` tasks have executed in dev mode the bash/cmd prompt should show the following:
 ```
+$ grunt
+Running "clean:dist" (clean) task
+>> 1 path cleaned.
+
 Running "sass:dev" (sass) task
 
 Running "autoprefixer:files" (autoprefixer) task
 File dist/styles/main.css created.
 File dist/styles/main.css.map created (source map).
 
-Running "concat_css:all" (concat_css) task
-File "dist/styles/main.css" created.
-
-Running "uglify:main" (uglify) task
+Running "concat:dev" (concat) task
+File dist/js/main.js created.
 
 Running "copy:images" (copy) task
 
