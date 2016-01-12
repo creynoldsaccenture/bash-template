@@ -89,7 +89,6 @@ Then Grunt is not installed. To install Grunt run `npm install grunt`.
 If you run `grunt` and see something similar to the following message:
 
 ```
-$ grunt
 Running "sass:dev" (sass) task
 c:/Ruby193/lib/ruby/site_ruby/1.9.1/rubygems/dependency.rb:247:in `to_specs': Could not find sass (>= 0) amongst [activesupport-3.2.22, addressable-2.3.8, akami
 -1.3.1, berkshelf-2.0.15, bigdecimal-1.1.0, buff-config-0.4.0, buff-extensions-0.5.0, buff-ignore-1.1.1, buff-ruby_engine-0.1.0, buff-shell_out-0.2.0, builder-3
