@@ -10,15 +10,14 @@ module.exports = function(grunt) {
         watch: {
             sass: {
                 files: ['assets/scss/**/*.scss'],
-                tasks: ['sass:dev', 'autoprefixer', 'concat_css']
+                tasks: ['sass:dev', 'autoprefixer']
             },
             js: {
                 files: 'assets/js/**/*.js',
                 tasks: ['uglify']
             },
             images: {
-                files: ['assets/images/**/*.{png,jpg,gif}'],
-                //tasks: ['imagemin']
+                files: ['assets/images/**/*.{png,jpg,gif}']
             }
         },
 
@@ -56,27 +55,6 @@ module.exports = function(grunt) {
             },
         },
 
-        // css minify
-        cssmin: {
-            options: {
-                keepSpecialComments: 1
-            },
-            minify: {
-                expand: true,
-                cwd: 'dist/styles',
-                src: ['*.css', '!*.min.css'],
-                ext: '.css'
-            }
-        },
-
-        concat_css: {
-            options: {},
-            all: {
-              src: ['assets/css/**/*.css', 'dist/styles/**/*.css'],
-              dest: 'dist/styles/main.css'
-            }
-        },
-
         // javascript linting with jshint
         jshint: {
             options: {
@@ -89,7 +67,7 @@ module.exports = function(grunt) {
             ]
         },
 
-        // uglify to concat, minify, and make source maps
+        // uglify to concat, minify, and make source maps for js files
         uglify: {
             main: {
                 options: {
@@ -148,7 +126,8 @@ module.exports = function(grunt) {
     // rename tasks
     grunt.renameTask('rsync', 'deploy');
 
-    // register task
-    grunt.registerTask('default', ['sass:dev', 'autoprefixer', 'concat_css', 'uglify:main', 'copy', 'watch']);
+    // register tasks
+    grunt.registerTask('default', ['sass:dev', 'autoprefixer', 'uglify:main', 'copy', 'watch']);
+    grunt.registerTask('prod', ['sass:prod', 'autoprefixer', 'uglify:main', 'copy']);
 
 };
