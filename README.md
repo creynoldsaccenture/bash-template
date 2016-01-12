@@ -27,7 +27,7 @@ This template includes two grunt tasks:
 
 `grunt prod` will run the tasks in prodution mode. This will minify all CSS and Javascript files.
 
-Once the `grunt` tasks have executed the bash/cmd prompt should show the following:
+Once the `grunt` tasks have executed in dev mode the bash/cmd prompt should show the following:
 ```
 Running "sass:dev" (sass) task
 
@@ -49,11 +49,15 @@ Copied 5 files
 Running "watch" task
 Waiting...
 ```
-The `Running "watch" task` part means that Grunt is watching certain files to see if they are modified. For example, if you changed anything in `app.scss` then Grunt will re-run the `sass:dev` task.
+The `Running "watch" task` part means that Grunt is watching the Sass (scss) and Javascript (js) files to see if they are modified. For example, if you changed anything in `app.scss` then Grunt will re-run the `sass:dev` task.
 
-*N.B. `grunt prod` will not watch assets for changes*
+*N.B. `grunt prod` will not watch assets for changes.*
 
 ##Configuration
+Custom grunt tasks can be added as JSON config in `Gruntfile.js`.
+
+To install new dependencies run `npm install <package name> --save-dev`. The `--save-dev` flag tells npm to update the `packages.json` file with the new dependency.
+
 The IP address and port of the Express server can be changed by modifying the following line in `server.js`:
 ```
 var server = app.listen(3000, '127.0.0.1', function () {
