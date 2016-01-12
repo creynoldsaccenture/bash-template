@@ -2,9 +2,69 @@
 @import "bootstrap";
 @import "partials/_variables";
 
+
 /*=> Styles
 --------------------------------------------------*/
 
-body {
-    padding-top: $main-navbar-height;
+html, footer {
+    background-color: $footer-colour;
 }
+
+body {
+    padding-top: $navbar-height;
+    font-family: $brand-font-family;
+    font-weight: $brand-font-weight;
+}
+
+
+/*=> Styles - Flexbox
+--------------------------------------------------*/
+
+.flex-container {
+    display: flex;
+    align-items: stretch;
+
+    &__column {
+        flex-direction: column;
+    }
+    &__row {
+        flex-direction: row;
+    }
+    &__row--left {
+        justify-content: flex-start;
+    }
+    &__row--right {
+        justify-content: flex-end;
+    }
+}
+
+
+/*=> Styles - Content
+--------------------------------------------------*/
+
+#content {
+    padding: $grid-gutter-width ($grid-gutter-width / 2);
+    min-height: 500px;
+}
+
+/*=> Styles - Footer
+--------------------------------------------------*/
+
+footer {
+    padding-top: $grid-gutter-width;
+    color: $footer-text-colour;
+}
+
+
+/*=> Styles - Button
+--------------------------------------------------*/
+
+.btn {
+    border-radius: 0;
+}
+
+.btn-transparent {
+    background: transparent;
+}
+
+
