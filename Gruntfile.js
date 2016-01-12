@@ -14,7 +14,7 @@ module.exports = function(grunt) {
             },
             js: {
                 files: 'assets/js/**/*.js',
-                tasks: ['uglify']
+                tasks: ['concat:dev']
             },
             images: {
                 files: ['assets/images/**/*.{png,jpg,gif}']
