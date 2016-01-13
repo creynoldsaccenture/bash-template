@@ -4,7 +4,6 @@
 # A bash script which outputs HTML with system information
 
 ### CONSTANTS ###
-
 TITLE="System info for $HOSTNAME"
 NOW=$(date +"%x %r %z")
 TIME_STAMP="Updated on $NOW by $USER"
@@ -47,6 +46,11 @@ function home_space {
   fi
 }
 
+function show_processes {
+  echo "<h2>Top processes</h2>"
+  echo "<pre>$(top -n 1 -b | head)</pre>"
+}
+
 ### MAIN SCRIPT ###
 # The 'exec >' command diverts stdin to a file (in this case the HTML code)
 exec > $path
@@ -66,6 +70,7 @@ read -r -d '' html <<-EOF
     $(show_uptime)
     $(drive_space)
     $(home_space)
+    $(show_processes)
 EOF
 
 template=$(<$template)
