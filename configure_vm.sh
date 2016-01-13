@@ -1,17 +1,6 @@
-#!usr/bin/bash
+#!/bin/bash
 
-# Prompt user for their Github emaill address (required for setting up SSH keys)
-echo -e "\nPlease enter your Github email address:"
-read git_email
-
-if "$git_email" !== ""; then
-    initial_setup
-else
-    echo -e "\nThis script requires your Github email address to perform initial set up."
-    exit 1
-fi
-
-sub initial_setup {
+function initial_setup {
 
     # Install Git, Ruby, Node, NPM and Grunt 
     sudo apt-get install git
@@ -43,11 +32,11 @@ sub initial_setup {
     cd ~/
     mkdir dev
     cd dev
-    
+
     setup_bash_template
 }
 
-sub setup_bash_template {
+function setup_bash_template {
 
     # Clone the bash script repo
     git clone git@github.com:creynolds86/blank-project.git ./bash-template
@@ -64,6 +53,16 @@ sub setup_bash_template {
     chmod 755 ./system_info.sh
     ./system_info.sh
 }
+
+# Prompt user for their Github emaill address (required for setting up SSH keys)
+echo -n "Please enter your Github email address [ENTER]:"
+read git_email
+
+if "$git_email" !== ""; then
+    initial_setup
+else
+    echo -e "\nThis script requires your Github email address to perform initial set up."
+fi
 
 # Start the app server
 node server.js
