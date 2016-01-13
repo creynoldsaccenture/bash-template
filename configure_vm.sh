@@ -43,6 +43,8 @@ sub initial_setup {
     cd ~/
     mkdir dev
     cd dev
+    
+    setup_bash_template
 }
 
 sub setup_bash_template {
