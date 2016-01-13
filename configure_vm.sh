@@ -5,8 +5,8 @@ git_email="christopher.reynolds@accenture.com"
 
 # Install Git, Ruby, Node, NPM and Grunt 
 sudo apt-get install git
-sudo apt-get install Ruby
-sudo apt-get install node
+sudo apt-get install ruby
+sudo apt-get install nodejs-legacy
 sudo apt-get install npm
 npm install grunt --save-dev
 
@@ -45,7 +45,7 @@ git co bash-template
 npm install
 grunt prod
 
-# Build the HTML file to server
+# Build the HTML file to serve
 chmod 755 ./system_info.sh
 ./system_info.sh
 
