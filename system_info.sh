@@ -16,8 +16,8 @@ red_text="\033[0;31m"
 green_text="\033[0;32m"
 default_text="\033[0m"
 
-template="/home/chris/index.html.tpl"
-output_file="/home/chris/index.html"
+template="./index.html.tpl"
+output_file="./index.html"
 
 ### FUNCTIONS ###
 function system_info {

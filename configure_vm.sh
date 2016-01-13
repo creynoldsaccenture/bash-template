@@ -43,10 +43,14 @@ git co bash-template
 
 # Install repo dependencies and build the app
 npm install
-grunt
+grunt prod
+
+# Build the HTML file to server
+chmod 755 ./system_info.sh
+./system_info.sh
 
 # Start the app server
 node server.js
 
 # Open a new terminal window
-gnome-terminal -e "git st"
+gnome-terminal -e "grunt watch"
