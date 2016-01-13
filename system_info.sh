@@ -10,14 +10,14 @@ NOW=$(date +"%x %r %z")
 TIME_STAMP="Updated on $NOW by $USER"
 
 ### VARIABLES ###
-path="$HOME/system_info.html"
+path="$(pwd)/index.html"
 
 red_text="\033[0;31m"
 green_text="\033[0;32m"
 default_text="\033[0m"
 
-template="./index.html.tpl"
-output_file="./index.html"
+template="$(pwd)/index.html.tpl"
+output_file="$path"
 
 ### FUNCTIONS ###
 function system_info {
