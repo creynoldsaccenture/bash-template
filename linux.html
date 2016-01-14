@@ -51,7 +51,7 @@
 
                 <section class="top">
 
-                    <h2><code>top</code></h2>
+                    <h2 id="ac-top"><code>top</code></h2>
                     
                     <p>The <code>top</code> command is Linux' version of task manager for Windows. It gives the user an interactive overview of <b>current processes</b>, <b>number of users</b>, <b>cpu usage</b>, <b>memory usage</b> and <b>swap file usage</b> on the system <a href="#ac-more-top-info">and more</a>.</p>
 
@@ -274,9 +274,39 @@ KiB Swap:  2095100 total,    22864 used,  2072236 free.   458284 cached Mem
                 </section>
                 <section class="kill">
                     
-                    <h2><code>kill</code></h2>
+                    <h2 id="ac-kill"><code>kill</code></h2>
 
-                    <p>&nbsp;</p>
+                    <p>Terminate a process by specifying its <b>PID</b>, either via a signal or forced termination.</p>
+
+                    <h3>Syntax</h3>
+
+                    <p><code>kill <i>[-s sigspec] [-n signum] [-sigspec] jobspec or pid</i></code></p>
+                    <p><code>kill -l <i>[exit_status]</i></code></p>
+                    <p><code>kill -l <i>[sigspec]</i></code></p>
+
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th width="15%">Flag syntax</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>-l</code></td>
+                                <td>List the signal names.</td>
+                            </tr>
+                            <tr>
+                                <td><code>-s</code></td>
+                                <td>Send a specific signal.</td>
+                            </tr>
+                            <tr>
+                                <td><code>-n</code></td>
+                                <td>Send a specific signal number.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
                     <p>&nbsp;</p>
                     <p>&nbsp;</p>
                     <p>&nbsp;</p>
