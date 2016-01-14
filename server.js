@@ -4,6 +4,13 @@ var app = express();
 app.get('/', function (req, res) {
   res.sendFile(__dirname + '/index.html');
 });
+app.get('/commands/linux', function (req, res) {
+  res.sendFile(__dirname + '/linux.html');
+});
+app.get('/commands/sublime', function (req, res) {
+  res.sendFile(__dirname + '/sublime.html');
+});
+
 
 app.use(express.static('dist'));
 
