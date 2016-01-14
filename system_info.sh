@@ -56,15 +56,16 @@ function show_processes {
   # Remove leading commas
   top_output="$(echo "$top_output" | sed 's/,//')"
 
+  # Get the first line
+  headers="$(echo "$top_output" | head -q -n 1)"
+
+  # Remove the first line
+  top_output="$(echo "$top_output" | sed 1d )"  
+
   # Adapted from http://unix.stackexchange.com/questions/105501/convert-csv-to-html-table and http://stackoverflow.com/questions/13122441/how-do-i-read-a-variable-on-a-while-loop
-  print_headers=true
+  echo "<tr><th>${headers//,/</th><th>}</th></tr>"
 
   while IFS= read -r INPUT; do
-
-    if $print_header;then
-      echo "<tr><th>$INPUT" | sed -e 's/:[^,]*\(,\|$\)/<\/th><th>/g'
-      print_header=false
-    fi
 
     echo "<tr><td>${INPUT//,/</td><td>}</td></tr>"
 
