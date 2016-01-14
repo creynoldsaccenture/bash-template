@@ -11,7 +11,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="apple-touch-icon" href="apple-touch-icon.png">
 
-        <link rel="stylesheet" href="styles/main.css">
+        <link rel="stylesheet" href="/styles/main.css">
 
     </head>
     <body>
@@ -32,17 +32,24 @@
             </div>
             <div id="navbar" class="collapse navbar-collapse">
               <ul class="nav navbar-nav">
-                <li class="active"><a href="#">System Info</a></li>
+                <li class="active"><a href="/">System Info</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Useful commands</a>
+                    <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                        <li><a tabindex="-1" href="/commands/linux">Linux</a></li>
+                        <li><a tabindex="-1" href="/commands/sublime">Sublime Text 3</a></li>
+                    </ul>
+                </li>
               </ul>
             </div><!--/.nav-collapse -->
           </div>
         </nav>
 
-        <main class="container">
+        <main id="content" class="container">
             system_info
         </main><!-- /.container -->
 
         <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
-        <script src="js/main.js"></script>
+        <script src="/js/main.js"></script>
     </body>
 </html>
