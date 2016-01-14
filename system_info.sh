@@ -47,11 +47,14 @@ function home_space {
 }
 
 function show_processes {
-  echo "<h2>Top processes</h2>"
+
+  show_num_processes=5
+
+  echo "<h2>Top ${show_num_processes} processes by CPU usage</h2>"
   echo "<table class=\"table\">"
 
-  # Output one iteration of top in batch mode, get top processes, convert to CSV and remove everything before the process table (everything before the empty line)
-  top_output="$(top -n 1 -b | head | sed 's/  */,/g' | sed '1,/^$/d')"
+  # Output one iteration of top in batch mode, convert to CSV and remove everything before the process table (everything before the empty line)
+  top_output="$(top -n 1 -b | sed '1,/^$/d' | sed 's/  */,/g')"
 
   # Remove leading commas
   top_output="$(echo "$top_output" | sed 's/,//')"
@@ -59,8 +62,8 @@ function show_processes {
   # Get the first line
   headers="$(echo "$top_output" | head -q -n 1)"
 
-  # Remove the first line
-  top_output="$(echo "$top_output" | sed 1d )"  
+  # Remove the first line and return the number of lines defined by show_num_processes
+  top_output="$(echo "$top_output" | sed 1d | head -n $show_num_processes)"  
 
   # Adapted from http://unix.stackexchange.com/questions/105501/convert-csv-to-html-table and http://stackoverflow.com/questions/13122441/how-do-i-read-a-variable-on-a-while-loop
   echo "<tr><th>${headers//,/</th><th>}</th></tr>"
@@ -100,3 +103,5 @@ EOF
 template=$(<$template)
 template=${template/system_info/$html}
 echo "$template" > $output_file
+
+exit 0
