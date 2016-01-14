@@ -33,7 +33,6 @@
             <div id="navbar" class="collapse navbar-collapse">
               <ul class="nav navbar-nav">
                 <li class="active"><a href="#">System Info</a></li>
-                <li><a href="#processes">Processes</a></li>
               </ul>
             </div><!--/.nav-collapse -->
           </div>
