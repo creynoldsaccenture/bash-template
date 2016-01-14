@@ -7,18 +7,20 @@ $images-url: "/images";
 /*=> Variables - Brand
 --------------------------------------------------*/
 
-$brand-primary:         rgba(43, 76, 111, 1);   // Main Primary color */
-$brand-primary-1:       lighten($brand-primary, 10%);
-$brand-primary-2:       lighten($brand-primary, 15%);
-$brand-primary-3:       lighten($brand-primary, 20%);
-$brand-light:           lighten($brand-primary, 90%);
-$brand-success:         #5cb85c !default;
-$brand-info:            #5bc0de !default;
-$brand-warning:         #f0ad4e !default;
-$brand-danger:          #d9534f !default;
+$brand-primary:             rgba(43, 76, 111, 1);   // Main Primary color */
+$brand-primary-1:           lighten($brand-primary, 10%);
+$brand-primary-2:           lighten($brand-primary, 15%);
+$brand-primary-3:           lighten($brand-primary, 20%);
+$brand-light:               lighten($brand-primary, 90%);
+$brand-success:             #5cb85c !default;
+$brand-info:                #5bc0de !default;
+$brand-warning:             #f0ad4e !default;
+$brand-danger:              #d9534f !default;
 
-$brand-font-family:     'Open Sans', sans-serif;
-$brand-font-weight:     600;
+$brand-font-family:         'Open Sans', sans-serif;
+$brand-normal-font-weight:  300;
+$brand-bold-font-weight:    600;
+$brand-font-weight:         $brand-normal-font-weight;
 
 
 /*=> Variables - Navigation

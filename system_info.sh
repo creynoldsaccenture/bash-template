@@ -48,7 +48,30 @@ function home_space {
 
 function show_processes {
   echo "<h2>Top processes</h2>"
-  echo "<pre>$(top -n 1 -b | head)</pre>"
+  echo "<table class=\"table\">"
+
+  # Output one iteration of top in batch mode, get top processes, convert to CSV and remove everything before the process table (everything before the empty line)
+  top_output="$(top -n 1 -b | head | sed 's/  */,/g' | sed '1,/^$/d')"
+
+  # Remove leading commas
+  top_output="$(echo "$top_output" | sed 's/,//')"
+
+  # Adapted from http://unix.stackexchange.com/questions/105501/convert-csv-to-html-table and http://stackoverflow.com/questions/13122441/how-do-i-read-a-variable-on-a-while-loop
+  print_headers=true
+
+  while IFS= read -r INPUT; do
+
+    if $print_header;then
+      echo "<tr><th>$INPUT" | sed -e 's/:[^,]*\(,\|$\)/<\/th><th>/g'
+      print_header=false
+    fi
+
+    echo "<tr><td>${INPUT//,/</td><td>}</td></tr>"
+
+  done <<< "$top_output"
+
+  echo "</table>"
+  #echo "$top_output"
 }
 
 ### MAIN SCRIPT ###
