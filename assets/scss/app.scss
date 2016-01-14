@@ -1,6 +1,9 @@
 
 @import "bootstrap";
 @import "partials/_variables";
+@import "partials/_text";
+@import "partials/_buttons";
+@import "partials/_tables";
 
 
 /*=> Styles
@@ -14,6 +17,17 @@ body {
     padding-top: $navbar-height;
     font-family: $brand-font-family;
     font-weight: $brand-font-weight;
+}
+
+// Fix the issue with the fixed navbar covering up id anchor points
+// This doesn't work on table elements
+*[id^="ac-"]:before {
+    content: '';
+    display: block;
+    position: relative;
+    width: 0;
+    height: 5em;
+    margin-top: -5em;
 }
 
 
@@ -45,6 +59,11 @@ body {
 #content {
     padding: $grid-gutter-width ($grid-gutter-width / 2);
     min-height: 500px;
+
+    section {
+        margin: $gutter 0;
+        overflow: hidden; // Fix the margins overlapping
+    }
 }
 
 /*=> Styles - Footer
