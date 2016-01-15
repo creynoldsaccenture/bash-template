@@ -5,4 +5,7 @@
     & th, & td {
         vertical-align: middle;
     }
+    & th:not(:last-child) {
+        width: 15%;
+    }
 }
