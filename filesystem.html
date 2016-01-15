@@ -53,7 +53,7 @@
                 <section class="cd">
                     <h2><code>cd</code></h2>
 
-                    <p>Change current working directory.</p>
+                    <p>Change the current working directory.</p>
 
                     <h3>Syntax</h3>
 
@@ -90,6 +90,17 @@
 /home/chris/dev
 chris@chris-vm:~/dev$</code></pre>
 
+                    <p>You can also use special symbols to navigate through the filesystem (i.e. <code>./</code>, which refers to the current working directory, or <code>~/</code> which refers to the <i>/home</i> directory), e.g. moving to the current working directories' parent folder:</p>
+
+                    <pre><code>chris@chris-vm:~/dev$ pwd &amp;&amp; cd ..</code>
+/home/chris/dev
+chris@chris-vm:~$ pwd
+/home/chris</pre>
+
+                <p>The use of <code>pwd</code> in the example above is to print out the current working directory to better illustrate the example. It is not required to use the <code>cd</code> command with the special <code>..</code> symbol.</p>
+
+                <p>The <code>./</code> special symbol can be extremely useful when running custom shell scripts (shell scripts use the <i>.sh</i> file extension) which aren't placed in the <i>/bin</i> (executables) folder.</p>
+
                 </section>
                 <section class="ls">
                     <h2><code>ls</code></h2>
@@ -98,7 +109,7 @@ chris@chris-vm:~/dev$</code></pre>
 
                     <h3>Syntax</h3>
 
-                    <p><code>ls <i>&lt;options&gt;</i></code></p>
+                    <p><code>ls <i>&lt;options&gt;</i> <i>&lt;path&gt;</i></code></p>
 
                     <h3>Options</h3>
 
@@ -121,11 +132,74 @@ chris@chris-vm:~/dev$</code></pre>
                         </tbody>
                     </table>
 
+                    <p>If <code><i>&lt;path&gt;</i></code> is omitted the <code>ls</code> command will run on the current working directory (default).</p>
+
                     <h3>Examples</h3>
 
-                    <p>Show all hidden files in the current user's home directory:</p>
+                    <p>Show all files in the <i>/bin</i> directory, including hidden files and folders:</p>
 
-                    <pre><code></code></pre>
+                    <pre><code>$ ls /bin -a</code>
+.                     false       nc                       setfacl
+..                    fgconsole   nc.openbsd               setfont
+bash                  fgrep       netcat                   setupcon
+bunzip2               findmnt     netstat                  sh
+busybox               fuser       nisdomainname            sh.distrib
+bzcat                 fusermount  ntfs-3g                  sleep
+bzcmp                 getfacl     ntfs-3g.probe            ss
+bzdiff                grep        ntfs-3g.secaudit         static-sh
+bzegrep               gunzip      ntfs-3g.usermap          stty
+bzexe                 gzexe       ntfscat                  su
+bzfgrep               gzip        ntfsck                   sync
+bzgrep                hostname    ntfscluster              tailf
+bzip2                 ip          ntfscmp                  tar
+bzip2recover          kbd_mode    ntfsdump_logfile         tempfile
+bzless                kill        ntfsfix                  touch
+bzmore                kmod        ntfsinfo                 true
+cat                   less        ntfsls                   udevadm
+chacl                 lessecho    ntfsmftalloc             ulockmgr_server
+chgrp                 lessfile    ntfsmove                 umount
+chmod                 lesskey     ntfstruncate             uname
+chown                 lesspipe    ntfswipe                 uncompress
+chvt                  ln          open                     unicode_start
+cp                    loadkeys    openvt                   vdir
+cpio                  login       pidof                    vmmouse_detect
+dash                  loginctl    ping                     which
+date                  lowntfs-3g  ping6                    whiptail
+dbus-cleanup-sockets  ls          plymouth                 ypdomainname
+dbus-daemon           lsblk       plymouth-upstart-bridge  zcat
+dbus-uuidgen          lsmod       ps                       zcmp
+dd                    mkdir       pwd                      zdiff
+df                    mknod       rbash                    zegrep
+dir                   mktemp      readlink                 zfgrep
+dmesg                 more        red                      zforce
+dnsdomainname         mount       rm                       zgrep
+domainname            mountpoint  rmdir                    zless
+dumpkeys              mt          rnano                    zmore
+echo                  mt-gnu      running-in-container     znew
+ed                    mv          run-parts
+egrep                 nano        sed</pre>
+                    
+                    <p>Show detailed information about files in the current working directory (excluding hidden files):</p>
+
+                    <pre><code>$ ls -l</code>
+total 72
+-rwxr-xr-x 1 chris chris 2018 Jan 13 12:56 configure_vm.sh
+-rwxr-xr-x 1 chris chris 2008 Jan 13 12:52 configure_vm.sh~
+drwxr-xr-x 2 chris chris 4096 Jan 13 11:46 Desktop
+drwxrwxr-x 3 chris chris 4096 Jan 13 14:55 dev
+drwxr-xr-x 2 chris chris 4096 Jan 13 11:46 Documents
+drwxr-xr-x 2 chris chris 4096 Jan 13 14:35 Downloads
+-rw-r--r-- 1 chris chris 8980 Jan 13 11:16 examples.desktop
+-rw-rw-r-- 1 chris chris    1 Jan 13 13:07 index.html
+drwxrwxr-x 3 chris chris 4096 Jan 14 10:35 Library
+drwxr-xr-x 2 chris chris 4096 Jan 13 11:46 Music
+drwxrwxr-x 3 chris chris 4096 Jan 13 12:33 node_modules
+drwxr-xr-x 2 chris chris 4096 Jan 13 11:46 Pictures
+drwxr-xr-x 2 chris chris 4096 Jan 13 11:46 Public
+-rw-rw-r-- 1 chris chris    0 Jan 13 14:29 system_info.html
+drwxr-xr-x 2 chris chris 4096 Jan 13 11:46 Templates
+drwxrwxr-x 3 chris chris 4096 Jan 15 12:59 tmp
+drwxr-xr-x 2 chris chris 4096 Jan 13 11:46 Videos</pre>
 
                 </section>
                 <section class="">
