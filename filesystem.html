@@ -64,7 +64,7 @@
                     <table class="table">
                         <thead>
                             <tr>
-                                <th width="15%">Option</th>
+                                <th>Option</th>
                                 <th>Description</th>
                             </tr>
                         </thead>
@@ -97,7 +97,7 @@ chris@chris-vm:~/dev$</code></pre>
 chris@chris-vm:~$ pwd
 /home/chris</pre>
 
-                <p>The use of <code>pwd</code> in the example above is to print out the current working directory to better illustrate the example. It is not required to use the <code>cd</code> command with the special <code>..</code> symbol.</p>
+                <p>The use of <code>pwd</code> in the example above is to print out the current working directory to better illustrate the example. The <code>pwd</code> command is not required to use the <code>cd</code> command with the special <code>..</code> symbol.</p>
 
                 <p>The <code>./</code> special symbol can be extremely useful when running custom shell scripts (shell scripts use the <i>.sh</i> file extension) which aren't placed in the <i>/bin</i> (executables) folder.</p>
 
@@ -111,12 +111,12 @@ chris@chris-vm:~$ pwd
 
                     <p><code>ls <i>&lt;options&gt;</i> <i>&lt;path&gt;</i></code></p>
 
-                    <h3>Options</h3>
+                    <h3 id="ac-ls-options">Options</h3>
 
                     <table class="table">
                         <thead>
                             <tr>
-                                <th width="15%">Option</th>
+                                <th>Option</th>
                                 <th>Description</th>
                             </tr>
                         </thead>
@@ -202,6 +202,219 @@ drwxrwxr-x 3 chris chris 4096 Jan 15 12:59 tmp
 drwxr-xr-x 2 chris chris 4096 Jan 13 11:46 Videos</pre>
 
                 </section>
+                <section class="chmod">
+                    <h2 id="ac-chmod"><code>chmod</code></h2>
+
+                    <p>Change file or directory permissions.</p>
+
+                    <h3>Syntax</h3>
+
+                    <p><code>chmod <i>&lt;options&gt;</i> <i>&lt;mode&gt;</i> <i>&lt;file&gt;</i></code></p>
+
+                    <h3>Options</h3>
+
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Option</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>-f</code> or <code>--silent</code> or <code>--quiet</code></td>
+                                <td>Suppress most error messages (force).</td>
+                            </tr>
+                            <tr>
+                                <td><code>-v</code> or <code>--verbose</code></td>
+                                <td>Output a diagnostic for every file processed.</td>
+                            </tr>
+                            <tr>
+                                <td><code>-c</code> or <code>--changes</code></td>
+                                <td>Like the <code>--verbose</code> option, but report only when a change is made.</td>
+                            </tr>
+                            <tr>
+                                <td><code>--reference=<i>&lt;file&gt;</i></code></td>
+                                <td>Change the permissions to match those of <code><i>&lt;file&gt;</i></code>.</td>
+                            </tr>
+                            <tr>
+                                <td><code>-R</code> or <code>--recursive</code></td>
+                                <td>Change files and directories recursively.</td>
+                            </tr>
+                            <tr>
+                                <td><code>--help</code></td>
+                                <td>Display command help and exit.</td>
+                            </tr>
+                            <tr>
+                                <td><code>--version</code></td>
+                                <td>Display version information and exit.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <h3>Modes</h3>
+
+                    <p>The <code><i>&lt;mode&gt;</i></code> can be specified as either an <b>octal number</b>, or a set of <b>symbols</b>. Modes consist of <b>three</b> parts: <i>User (owner)</i>, <i>Group</i> and <i>Others (all other users)</i>.</p>
+
+                    <h4>Numeric (octal) modes</h4>
+
+                    <p>The given <b>octal number</b> is from one to four digits and any omitted digits are assumed to be leading zeros. (So <code>chmod 755</code> would be interpreted as <code>chmod 0755</code>.)</p>
+
+                    <p>The table below shows the values of each permission type:</p>
+
+                    <table class="table auto-col-size">
+                        <caption class="sr-only">Octal <code>chmod</code> mode permission types</caption>
+                        <thead>
+                            <tr>
+                                <th>Permissions</th>
+                                <th>Octal value</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>None</td>
+                                <td>0</td>
+                            </tr>
+                            <tr>
+                                <td>Execute</td>
+                                <td>1</td>
+                            </tr>
+                            <tr>
+                                <td>Write</td>
+                                <td>2</td>
+                            </tr>
+                            <tr>
+                                <td>Read</td>
+                                <td>4</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <p>The permissions for a file or directory can then be devised by adding the octal values together.</p>
+
+                    <h5 id="ac-chmod-octal-eg">Examples</h5>
+
+                    <p>If we wanted to set the file permissions for <code>./system_info.sh</code> (a bash script in the root directory of this repository) to <i>user</i> <b>read, write, execute</b>, <i>group</i> <b>read, execute</b> and <b>read, execute</b> for <i>other users</i>, we just add up the octal values.</p>
+
+                    <p>So the permissions would be <b>7</b> (<i>4 + 2 + 1</i>) <b>5</b> (<i>4 + 0 + 1</i>) <b>5</b> (<i>4 + 0 + 1</i>).</p>
+
+                    <pre>$ <code>chmod 755 ./system_info.sh</code>
+$ <code>ls -l ./system_info.sh
+-rwxr-xr-x 1 chris chris 3059 Jan 14 14:09 ./system_info.sh</code></pre>
+
+                    <p class="nota-bene">It's worth noting that the <code>chmod</code> command with no options set will not output anything to the terminal, so we can check the changed permissions with <code>ls -l ./system_info.sh</code>.</p>
+
+                    <h4>Symbolic modes</h4>
+
+                    <p>Symbolic mode permissions are represented with either <code>r</code> (<i><b>r</b>ead</i>), <code>w</code> (<i><b>w</b>rite</i>) or <code>x</code> (<i>e<b>x</b>ecute</i>).</p>
+
+                    <p class="nota-bene">The <a href="#ac-ls-options"><code>ls -l</code></a> command displays permissions using the notation below.</p>
+
+                    <table class="table auto-col-size">
+                        <caption>Directory listing permissions display</caption>
+                        <thead>
+                            <tr>
+                                <th>Permissions</th>
+                                <th>Symbolic</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>None</td>
+                                <td>---</td>
+                            </tr>
+                            <tr>
+                                <td>Execute only</td>
+                                <td>--x</td>
+                            </tr>
+                            <tr>
+                                <td>Write only</td>
+                                <td>-w-</td>
+                            </tr>
+                            <tr>
+                                <td>Write and execute</td>
+                                <td>-wx</td>
+                            </tr>
+                            <tr>
+                                <td>Read only</td>
+                                <td>r--</td>
+                            </tr>
+                            <tr>
+                                <td>Read and execute</td>
+                                <td>r-x</td>
+                            </tr>
+                            <tr>
+                                <td>Read and write</td>
+                                <td>rw-</td>
+                            </tr>
+                            <tr>
+                                <td>Read, write and execute</td>
+                                <td>rwx</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <h5>Permission assignment operators</h5>
+
+                    <p>The <code>chmod</code> command uses the permissions groups and operators listed below for permissions assignment:</p>
+
+                    <table class="table">
+                        <caption>Permission assignment groups</caption>
+                        <thead>
+                            <tr>
+                                <th>Character</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>u</td>
+                                <td>The owner of the file or directory (stands for <i><b>u</b>ser</i>)</td>
+                            </tr>
+                            <tr>
+                                <td>g</td>
+                                <td>The <i>user <b>g</b>roup</i> that the owner belongs to.</td>
+                            </tr>
+                            <tr>
+                                <td>o</td>
+                                <td>All <i><b>o</b>ther users</i>.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <table class="table">
+                        <caption>Permission assignment operators</caption>
+                        <thead>
+                            <tr>
+                                <th>Operator</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>+</td>
+                                <td>Adds the specified modes to the specified classes.</td>
+                            </tr>
+                            <tr>
+                                <td>-</td>
+                                <td>Removes the specified modes from the specified classes.</td>
+                            </tr>
+                            <tr>
+                                <td>=</td>
+                                <td>The modes specified are to be made the exact modes for the specified classes.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <h5>Examples</h5>
+
+                    <p>Using <a href="#ac-chmod-octal-eg">the example from the octal mode section</a>, the symbolic version of <code>chmod 755</code> would be as follows:</p>
+
+                    <pre>$ <code>chmod u=rwx,g=rx,o=rx ./system_info.sh</code></pre>
+
+                    <p>The code above will override any permissions set previously.</p>
+
+                </section>
                 <section class="">
                     <h2><code></code></h2>
 
@@ -216,7 +429,7 @@ drwxr-xr-x 2 chris chris 4096 Jan 13 11:46 Videos</pre>
                     <table class="table">
                         <thead>
                             <tr>
-                                <th width="15%">Option</th>
+                                <th>Option</th>
                                 <th>Description</th>
                             </tr>
                         </thead>
@@ -248,39 +461,7 @@ drwxr-xr-x 2 chris chris 4096 Jan 13 11:46 Videos</pre>
                     <table class="table">
                         <thead>
                             <tr>
-                                <th width="15%">Option</th>
-                                <th>Description</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            
-                        </tbody>
-                    </table>
-
-                    <h3>Examples</h3>
-
-                    <p></p>
-
-                </section>
-                <section class="">
-                    <h2><code></code></h2>
-
-                    <p></p>
-
-                    <h3>Syntax</h3>
-
-                    <p><code>cd <i>&lt;options&gt;</i></code></p>
-
-                    <h3>Options</h3>
-
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th width="15%">Option</th>
+                                <th>Option</th>
                                 <th>Description</th>
                             </tr>
                         </thead>

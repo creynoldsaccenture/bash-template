@@ -1,15 +1,24 @@
 
 /*=> Text
 --------------------------------------------------*/
-
-/*=> Text - Articles
---------------------------------------------------*/
-article {
-    h2, h3 {
-        margin: $gutter 0 $gutter-half 0;
+#content {
+    h2, h3, h4, h5 {
+        margin: $sub-headings-margin;
     }
     h2:first-child {
         margin-top: 0;
     }
-}
+    h5 {
+        font-size: $font-size-h4;
+    }
+    .nota-bene {
+        @extend blockquote;
+        font-size: $font-size-base;
 
+        &:before {
+            content: 'N.B.';
+            color: $nota-bene-before-colour;
+            margin-right: $gutter-quarter;
+        }
+    }
+}

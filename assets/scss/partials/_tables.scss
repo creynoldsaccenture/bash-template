@@ -9,3 +9,8 @@
         width: 15%;
     }
 }
+#content article section.chmod .table {
+    &, &.auto-col-size th {
+        width: auto;
+    }
+}
