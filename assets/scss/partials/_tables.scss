@@ -14,3 +14,8 @@
         width: auto;
     }
 }
+#content article section.shortcuts .table {
+    & th:not(:last-child) {
+        width: 25%;
+    }
+}
