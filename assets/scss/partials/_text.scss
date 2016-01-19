@@ -21,4 +21,31 @@
             margin-right: $gutter-quarter;
         }
     }
+    a.img-enlarge {
+        position: relative;
+        display: inline-block;
+        color: $link-img-enlarge-color;
+
+        p {
+            position: absolute;
+            bottom: 0;
+            margin: 0;
+            padding: 25% 0px;
+            width: 100%;
+            height: 100%;
+            background-color: rgba($link-img-enlarge-text-bg-color, $link-img-enlarge-text-bg-alpha);
+            opacity: 0;
+            text-align: center;
+            
+            &:before {
+               @extend .glyphicon-search;
+               display: block;
+               font-family: 'Glyphicons Halflings';
+               font-size: 36px;
+            }
+            &:hover {
+                opacity: 1;
+            }
+        }
+    }
 }
