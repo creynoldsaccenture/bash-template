@@ -23,7 +23,7 @@ This template includes two grunt tasks:
 
 `grunt` will run the tasks in development mode. This means that the CSS and Javascript files will not be minfied.
 
-`grunt prod` will run the tasks in prodution mode. This will minify all CSS and Javascript files.
+`grunt prod` will run the tasks in production mode. This will minify all CSS and Javascript files.
 
 Once the `grunt` tasks have executed in dev mode the bash/cmd prompt should show the following output:
 ```
