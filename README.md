@@ -1,6 +1,4 @@
-#Blank project template
-
-This is an HTML5 boilerplate and Twitter Bootstrap blank template with Grunt and Express.
+#Bash/Linux and Sublime text docs
 
 ##Requirements 
 
