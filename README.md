@@ -82,7 +82,7 @@ installing and configuring grunt, please see the Getting Started guide:
 
 http://gruntjs.com/getting-started
 ```
-Then Grunt is not installed. To install Grunt run `npm install grunt`.
+Then Grunt is not installed. To install Grunt run `npm install grunt` and `npm install grunt-cli`.
 
 If you run `grunt` and see something similar to the following message:
 
