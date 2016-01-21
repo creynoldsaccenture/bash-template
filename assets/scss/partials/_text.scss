@@ -34,19 +34,24 @@
             padding: 25% 0px;
             width: 100%;
             height: 100%;
-            background-color: rgba($link-img-enlarge-text-bg-color, $link-img-enlarge-text-bg-alpha);
+            background-color: rgba($link-img-enlarge-bg-color, $link-img-enlarge-bg-alpha);
             opacity: 0;
             text-align: center;
             
             &:before {
-               @extend .glyphicon-search;
-               display: block;
-               font-family: 'Glyphicons Halflings';
-               font-size: 36px;
+                display: block;
+                content: "\e003"; // Magnifying glass icon
+                font-family: 'Glyphicons Halflings';
+                font-size: 36px;
             }
             &:hover {
                 opacity: 1;
             }
         }
+    }
+    figcaption {
+        margin: $gutter 0 $gutter-half 0;
+        font-style: italic;
+        color: $gray-light;
     }
 }

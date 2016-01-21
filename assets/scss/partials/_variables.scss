@@ -6,20 +6,21 @@ $images-url: "/images";
 /*=> Variables - Brand
 --------------------------------------------------*/
 $brand-primary:                     rgba(43, 76, 111, 1);   // Main Primary color */
-$brand-primary-1:                   lighten($brand-primary, 10%);
-$brand-primary-2:                   lighten($brand-primary, 15%);
-$brand-primary-3:                   lighten($brand-primary, 20%);
+$brand-primary-shadow:              lighten($brand-primary, 10%);
+$brand-primary-midtone:             lighten($brand-primary, 15%);
+$brand-primary-highlight:           lighten($brand-primary, 20%);
 $brand-light:                       lighten($brand-primary, 90%);
 $brand-success:                     #5cb85c !default;
 $brand-info:                        #5bc0de !default;
 $brand-warning:                     #f0ad4e !default;
 $brand-danger:                      #d9534f !default;
 
+/*=> Variables - Brand - Font
+--------------------------------------------------*/
 $brand-font-family:                 'Open Sans', sans-serif;
 $brand-normal-font-weight:          300;
 $brand-bold-font-weight:            600;
 $brand-font-weight:                 $brand-normal-font-weight;
-
 
 /*=> Variables - Navigation
 --------------------------------------------------*/
@@ -27,7 +28,6 @@ $navbar-default-color:              $brand-primary-4 !default;
 
 /*=> Variables - Main content
 --------------------------------------------------*/
-
 /*=> Variables - Main content - Measurements
 --------------------------------------------------*/
 $gutter:                            30px;
@@ -37,9 +37,13 @@ $main-content-padding:              40px 15px;
 
 /*=> Variables - Main content - Text
 --------------------------------------------------*/
-$sub-headings-margin:            $gutter 0 $gutter-half 0;
+$sub-headings-margin:               $gutter 0 $gutter-half 0;
 $nota-bene-before-margin:           $gutter-quarter;
 $nota-bene-before-colour:           $gray-light;
+
+/*=> Variables - Main content - Icons
+--------------------------------------------------*/
+$img-enlarge-icon-size:             36px;
 
 /*=> Variables - Main content - Colours
 --------------------------------------------------*/
@@ -47,12 +51,11 @@ $body-colour:                       #111;
 $body-text-colour:                  #eee;
 
 $link-img-enlarge-color:            $brand-light;
-$link-img-enlarge-text-bg-color:    darken($brand-primary, 100%);
-$link-img-enlarge-text-bg-alpha:    0.8;
+$link-img-enlarge-bg-color:         darken($brand-primary, 100%);
+$link-img-enlarge-bg-alpha:         0.8;
 
 /*=> Variables - Footer
 --------------------------------------------------*/
-
 /*=> Variables - Footer - Colours
 --------------------------------------------------*/
 $footer-colour:                     $brand-light;

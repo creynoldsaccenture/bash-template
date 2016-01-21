@@ -35,8 +35,8 @@
               <ul class="nav navbar-nav">
                 <li><a href="/">System Info</a></li>
                 <li class="dropdown active">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Useful commands</a>
-                    <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                    <a id="commands_dropdown" href="#" class="dropdown-toggle" data-toggle="dropdown">Useful commands</a>
+                    <ul class="dropdown-menu" role="menu" aria-labelledby="commands_dropdown">
                         <li><a tabindex="-1" href="/commands/filesystem">File system</a></li>
                         <li><a tabindex="-1" href="/commands/process">Processes</a></li>
                         <li><a tabindex="-1" href="#">Sublime Text 3</a></li>
@@ -49,37 +49,46 @@
 
         <main id="content" class="container">
             <article>
-                <h1>Sublime text 3 commands</h1>
+                <h1>Sublime Text 3 commands</h1>
 
                 <section class="preferences">
                     <h2>Setting up user preferences</h2>
 
                     <p>In Sublime Text 3 you can set various preferences, which makes Sublime Text 3 excellent for code collaboration. For example you can manage coding standards like tabs vs. spaces and so on.</p>
 
-                    <p>To edit the preferences for your user (the default preferences are <i>read-only</i> in Sublime Text 3), simply go to <b>Preferences > Settings &ndash; User</b>.</p>
+                    <p>To edit the preferences for your user (the default preferences are <i>read-only</i> in Sublime Text 3), simply go to <strong>Preferences > Settings &ndash; User</strong>.</p>
 
-                    <a href="/images/user-preferences-large.png" target="_blank" class="img-enlarge">
-                        <img src="/images/user-preferences.png" alt="The user settings in the Sublime Text 3 preferences menu" class="img-responsive">
-                        <p>Click to enlarge</p>
-                    </a>
+                    <figure>
+                        <figcaption>Changing Sublime Text 3 user preferences</figcaption>
+                        <a href="/images/user-preferences-large.png" target="_blank" class="img-enlarge">
+                            <img src="/images/user-preferences.png" alt="The user settings in the Sublime Text 3 preferences menu" class="img-responsive">
+                            <p>Click to enlarge</p>
+                        </a>
+                    </figure>
 
                     <h3>Code indentation</h3>
 
-                    <p>I would recommend using <i>four</i> spaces for indentation (as this is what most programmers use). You can tell Sublime Text to convert tabs to spaces by opening the <b>User preferences</b> JSON file and changing <code>"translate_tabs_to_spaces"</code> value from <code>false</code> to <code>true</code>, so that you can just press tab to insert four spaces.</p>
+                    <p>I would recommend using <i>four</i> spaces for indentation (as this is what most programmers use). You can tell Sublime Text to convert tabs to spaces by opening the <strong>User preferences</strong> JSON file and changing <code>"translate_tabs_to_spaces"</code> value from <code>false</code> to <code>true</code>, so that you can just press <strong>tab</strong> to insert four spaces.</p>
 
                 </section>
                 <section class="shortcuts">
                     <h2>Shortcuts</h2>
+
+                    <h3>Changing shortcut key bindings</h3>
+
+                    <p>Shortcut key bindings can be changed by editing the JSON file under <strong>Preferences > Key bindings &ndash; User</strong>.</p>
+
+                    <figure>
+                        <figcaption>Changing Sublime Text 3 key bindings</figcaption>
+                        <a href="/images/key-bindings-large.png" target="_blank" class="img-enlarge">
+                            <img src="/images/key-bindings.png" alt="The key bindings settings in the Sublime Text 3 preferences menu" class="img-responsive">
+                            <p>Click to enlarge</p>
+                        </a>
+                    </figure>
+
                     <h3>Standard shortcuts</h3>
 
-                    <p>None of these shortcuts are set in stone and can be changed by editing the JSON file under <b>Preferences > Key bindings &ndash; User</b>.</p>
-
-                    <a href="/images/key-bindings-large.png" target="_blank" class="img-enlarge">
-                        <img src="/images/key-bindings.png" alt="The key bindings settings in the Sublime Text 3 preferences menu" class="img-responsive">
-                        <p>Click to enlarge</p>
-                    </a>
-
-                    <p>Listed below are some of the most frequently used common shortcuts in Sublime Text 3. All of these shortcuts are located in the <b>File</b> menu.</p>
+                    <p>All of the shortcuts listed below are located in the <strong>File</strong> menu.</p>
 
                     <table class="table auto-col-size">
                         <caption class="sr-only">Standard Sublime Text 3 shortcuts</caption>
@@ -107,6 +116,10 @@
                                 <td>Close current tab</td>
                             </tr>
                             <tr>
+                                <td><span class="btn btn-keyboard">Ctrl</span> + <span class="btn btn-keyboard">Shift</span> + <span class="btn btn-keyboard">t</span></td>
+                                <td>Reopen previously closed tab</td>
+                            </tr>
+                            <tr>
                                 <td><span class="btn btn-keyboard">Ctrl</span> + <span class="btn btn-keyboard">Tab</span></td>
                                 <td>Go to next tab</td>
                             </tr>
@@ -121,13 +134,11 @@
                         </tbody>
                     </table>
 
-                    <p class="nota-bene">It's worth noting that the go to next/previous tab shortcuts navigate in the order in which you last viewed the tabs (rather than in the order they were opened in Sublime Text) </p>
-
-                    <h2>Coding related shortcuts</h2>
+                    <p class="nota-bene">It's worth noting that the go to next/previous tab shortcuts navigate in the order in which you last viewed the tabs (rather than in the order they were opened in Sublime Text)</p>
 
                     <h3>Editing related</h3>
 
-                    <p>Below are some of the more frequently used common code editing related shortcuts for Sublime Text 3:</p>
+                    <p>The shortcuts listed below can be found in the <strong>Edit</strong> menu.</p>
 
                     <table class="table auto-col-size">
                         <caption class="sr-only">Editing related Sublime Text 3 shortcuts</caption>
@@ -154,6 +165,24 @@
                                 <td><span class="btn btn-keyboard">Ctrl</span> + <span class="btn btn-keyboard">Shift</span> + <span class="btn btn-keyboard">v</span></td>
                                 <td>Paste with indentation</td>
                             </tr>
+                        </tbody>
+                    </table>
+
+                    <h3>Coding related</h3>
+
+                    <table class="table auto-col-size">
+                        <caption class="sr-only">Editing related Sublime Text 3 shortcuts</caption>
+                        <thead>
+                            <tr>
+                                <th>Shortcut keys</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><span class="btn btn-keyboard">Ctrl</span> + <span class="btn btn-keyboard">L</span></td>
+                                <td>Select line</td>
+                            </tr>
                             <tr>
                                 <td><span class="btn btn-keyboard">Ctrl</span> + <span class="btn btn-keyboard">]</span></td>
                                 <td>Indent</td>
@@ -179,7 +208,39 @@
 
                     <h3>Search related</h3>
 
-                    <p></p>
+                    <p>Below are some of the more frequently used common search related shortcuts for Sublime Text 3:</p>
+
+                    <table class="table auto-col-size">
+                        <caption class="sr-only">Editing related Sublime Text 3 shortcuts</caption>
+                        <thead>
+                            <tr>
+                                <th>Shortcut keys</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><span class="btn btn-keyboard">Ctrl</span> + <span class="btn btn-keyboard">f</span></td>
+                                <td>Find</td>
+                            </tr>
+                            <tr>
+                                <td><span class="btn btn-keyboard">Ctrl</span> + <span class="btn btn-keyboard">Shift</span> + <span class="btn btn-keyboard">f</span></td>
+                                <td>Find in files</td>
+                            </tr>
+                            <tr>
+                                <td><span class="btn btn-keyboard">Ctrl</span> + <span class="btn btn-keyboard">F3</span></td>
+                                <td>Find next</td>
+                            </tr>
+                            <tr>
+                                <td><span class="btn btn-keyboard">Ctrl</span> + <span class="btn btn-keyboard">h</span></td>
+                                <td>Find and replace</td>
+                            </tr>
+                            <tr>
+                                <td><span class="btn btn-keyboard">Ctrl</span> + <span class="btn btn-keyboard">g</span></td>
+                                <td>Go to a specific line</td>
+                            </tr>
+                        </tbody>
+                    </table>
 
                 </section>
             </article>
