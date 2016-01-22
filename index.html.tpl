@@ -36,7 +36,7 @@
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Useful commands</a>
                     <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
-                        <li><a tabindex="-1" href="/commands/linux">Linux</a></li>
+                        <li><a tabindex="-1" href="/commands/filesystem">File system</a></li>
                         <li><a tabindex="-1" href="/commands/process">Processes</a></li>
                         <li><a tabindex="-1" href="/commands/sublime">Sublime Text 3</a></li>
                     </ul>
