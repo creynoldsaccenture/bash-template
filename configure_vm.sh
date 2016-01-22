@@ -20,13 +20,13 @@ function initial_setup {
     git config --global alias.un 'reset HEAD --'
 
     # Set up SSH keys
-    ssh-keygen -t rsa -b 4096 -C "$git_email"
-    ssh-agent -s
-    ssh-add ~/.ssh/id_rsa
+    # ssh-keygen -t rsa -b 4096 -C "$git_email"
+    # ssh-agent -s
+    # ssh-add ~/.ssh/id_rsa
 
-    echo "Copy this SSH key and paste it into the SSH keys section of your Github profile\n"
-    cat ~/.ssh/id_rsa.pub
-    echo "\n\n"
+    # echo "Copy this SSH key and paste it into the SSH keys section of your Github profile\n"
+    # cat ~/.ssh/id_rsa.pub
+    # echo "\n\n"
 
     # Make dev folder
     cd ~/
@@ -54,15 +54,15 @@ function setup_bash_template {
     ./system_info.sh
 }
 
-# Prompt user for their Github emaill address (required for setting up SSH keys)
-echo -n "Please enter your Github email address [ENTER]:"
-read git_email
+# Prompt user for their Github emaill address (required for setting up SSH keys) - NOT WORKING!
+# echo -n "Please enter your Github email address [ENTER]:"
+# read git_email
 
-if "$git_email" !== ""; then
-    initial_setup
-else
-    echo -e "\nThis script requires your Github email address to perform initial set up."
-fi
+# if "$git_email" !== ""; then
+#     initial_setup
+# else
+#     echo -e "\nThis script requires your Github email address to perform initial set up."
+# fi
 
 # Start the app server
 node server.js
