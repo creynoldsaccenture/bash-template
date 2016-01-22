@@ -8,6 +8,7 @@ function initial_setup {
     sudo apt-get install nodejs-legacy
     sudo apt-get install npm
     npm install grunt --save-dev
+    npm install grunt-cli --save-dev
 
     # Check that Ruby is installed
     ruby -v
@@ -29,32 +30,32 @@ function initial_setup {
     # echo "\n\n"
 
     # Make dev folder
-    cd ~/
-    mkdir dev
-    cd dev
+    # cd ~/
+    # mkdir dev
+    # cd dev
 
-    setup_bash_template
+    # setup_bash_template
 }
 
 function setup_bash_template {
 
     # Clone the bash script repo
-    git clone git@github.com:creynolds86/blank-project.git ./bash-template
+    # git clone git@github.com:creynoldsaccenture/bash-template.git ./bash-template
 
-    # Checkout the bash template
-    cd bash-template
-    git co bash-template
+    # # Checkout the bash template
+    # cd bash-template
+    # git co bash-template
 
     # Install repo dependencies and build the app
     npm install
-    grunt prod
+    grunt
 
     # Build the HTML file to serve
     chmod 755 ./system_info.sh
     ./system_info.sh
 }
 
-# Prompt user for their Github emaill address (required for setting up SSH keys) - NOT WORKING!
+# Prompt user for their Github email address (required for setting up SSH keys) - NOT WORKING!
 # echo -n "Please enter your Github email address [ENTER]:"
 # read git_email
 
